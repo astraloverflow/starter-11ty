@@ -1,0 +1,8 @@
+{
+  "extends": [
+    "stylelint-config-astraloverflow"
+  ],
+  "rules": {
+    "scss/at-rule-no-unknown": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "defaultlang": "en",
+  "title": "Example.com",
+  "subtitle": "An example blog",
+  "description": "A longer description of this site",
+  "copyright_years": "2019-2020",
+  "url": "https://example.com",
+  "author": {
+    "nickname": "John",
+    "fullname": "John Doe"
+  }
+}

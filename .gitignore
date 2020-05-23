@@ -1,0 +1,11 @@
+# Should always be in .gitignore unless you know what you're doing
+node_modules/
+
+# Remove this line if you want keep the generated site in git
+_site/
+
+# These files lock down the project's node dependencies
+# These are only here for the development of starter-11ty
+# You should remove whichever one you are using in your project
+package-lock.json
+yarn.lock

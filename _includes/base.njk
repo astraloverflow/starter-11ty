@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ lang or site.defaultlang }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>
+      {%- if title -%}
+        {{ title }} - {{ site.title }}
+      {%- else -%}
+        {{ site.title }} - {{ site.subtitle }}
+      {%- endif -%}
+    </title>
+    <meta
+      name="description"
+      content="{{ description or site.description }}"
+    />
+    <link rel="canonical" href="{% if canonical %}{{ canonical }}{% else %}{{ site.url }}{{ page.url | url }}{% endif %}" />
+    {% if seo.hidden %}<meta name="robots" content="noindex nofollow" />{% endif %}
+
+    <link rel="stylesheet" href="{{ '/main.css' | url }}" />
+    <link rel="stylesheet" href="{{ '/markdown.css' | url }}" />
+    <link rel="stylesheet" href="{{ '/syntax.css' | url }}" />
+  </head>
+  <body class="text-gray-900">
+    <div class="max-w-2xl mx-auto">
+      <header class="text-center">
+        <h1 class="mt-16 mb-2"><span class="bg-gray-800 text-white font-mono text-3xl px-3 py-1">{{ site.title }}</span></h1>
+        <div class="text-xl mx-3 mt-3 mb-10">{{ site.subtitle }}</div>
+        <hr />
+        <div class="text-xl my-3">
+          <a href="{{ '/' | url }}" class="text- mx-3">Home</a>
+          <a href="{{ '/about/' | url }}" class="text- mx-3">About</a>
+          <a href="https://twitter.com/" class="text- mx-3">Twitter</a>
+        </div>
+        <hr />
+      </header>
+      <main class="mt-4 mb-4">
+        {{ content | safe }}
+      </main>
+      <hr />
+      <footer class="text-center mt-10 mb-16">
+        &copy; {{ site.copyright_years }} {{ site.author.fullname }}
+      </footer>
+    </div>
+  </body>
+</html>

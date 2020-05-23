@@ -1,0 +1,17 @@
+---
+layout: base.njk
+---
+
+<h1 class="text-4_5xl font-semibold text-center my-8">Latest Posts</h1>
+<ul class="text-xl pb-4">
+  {% for post in collections.post | reverse -%}
+    <li class="my-2">
+      <span class="text-gray-500 text-2xl font-mono">
+        {{ post.data.lang }} &zwnj;
+      </span>
+      <a href="{{ post.url | url }}" class="font-semibold py-1">
+        {{ post.data.title }}
+      </a>
+    </li>
+  {%- endfor %}
+</ul>

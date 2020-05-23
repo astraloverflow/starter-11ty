@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "license": "",
+  "version": "2020.5.23",
+  "name": "@astraloverflow/starter-11ty",
+  "description": "A starter template for static generated blogs using 11ty",
+  "repository": "",
+  "scripts": {
+    "test": "stylelint \"**/*.css\"",
+    "format": "prettier --write",
+    "clean": "rimraf _site/",
+    "css": "mkdirp _site && postcss \"css/*.css\" --dir _site",
+    "dev": "cross-env NODE_ENV=development eleventy --serve",
+    "prod": "cross-env NODE_ENV=production npm run css && cross-env NODE_ENV=production eleventy"
+  },
+  "dependencies": {
+    "tailwindcss": "1.4.5"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "0.10.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "autoprefixer": "9.7.6",
+    "cross-env": "7.0.2",
+    "cssnano": "4.1.10",
+    "mkdirp": "1.0.4",
+    "postcss-cli": "7.1.1",
+    "prettier": "2.0.5",
+    "rimraf": "3.0.2",
+    "stylelint": "13.3.3",
+    "stylelint-config-astraloverflow": "astraloverflow/stylelint-config-astraloverflow#2.0.2"
+  }
+}
