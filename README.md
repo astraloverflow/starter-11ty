@@ -18,7 +18,7 @@
 
 ```shell
 $ cd ~/dev/
-$ npx degit astraloverflow/starter-11ty#2020.5.23 my-new-website
+$ npx degit astraloverflow/starter-11ty#2020.10.08 my-new-website
 $ cd my-new-website
 $ npm install
 $ npm run css
@@ -62,7 +62,7 @@ $ npm run dev
 - `_includes/` contains template layouts and partials (see https://www.11ty.dev/docs/templates/)
   - `_includes/base.njk` base layout that all other layouts extend
   - `_includes/en.post.njk` english post/article layout
-  - `_includes/en.post.njk` example french post/article layout
+  - `_includes/fr.post.njk` example french post/article layout
   - `_includes/post.njk` post/article layout, just a passthrough for the english post layout
   - `_includes/page.njk` page layout
 - `css/` contains source CSS files, not yet processed by PostCSS
