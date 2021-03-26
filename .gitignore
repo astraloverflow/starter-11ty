@@ -1,5 +1,6 @@
 # Should always be in .gitignore unless you know what you're doing
 node_modules
+.DS_Store
 
 # Remove this line if you want keep the generated site in git
 _site
