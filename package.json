@@ -1,37 +1,37 @@
 {
   "private": true,
   "license": "",
-  "version": "2020.10.08",
+  "version": "2021.03.25",
   "name": "@astraloverflow/starter-11ty",
   "description": "A starter template for static generated blogs using 11ty",
-  "repository": "",
   "scripts": {
-    "test": "stylelint \"**/*.css\"",
+    "test": "stylelint \"src/**/*.{css}\"",
     "format": "prettier --write",
-    "clean": "rimraf _site/",
-    "css": "mkdirp _site && postcss \"css/*.css\" --dir _site",
-    "dev": "cross-env NODE_ENV=development eleventy --serve",
-    "prod": "cross-env NODE_ENV=production npm run css && cross-env NODE_ENV=production eleventy"
+    "clean": "shx rm -rf _site/",
+    "css": "shx mkdir -p _site && postcss \"_styles/*.css\" --dir _site",
+    "dev": "eleventy --serve",
+    "build": "cross-env NODE_ENV=production npm run css && cross-env NODE_ENV=production eleventy"
   },
   "browserslist": [
-    "last 2 major versions and not dead and not ie > 1 and cover 95%"
+    "last 2 major versions and cover 95% and not dead and not ie > 1 and not op_mini all"
   ],
-  "dependencies": {
-    "tailwindcss": "1.8.10"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@11ty/eleventy": "0.11.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "3.0.1",
-    "autoprefixer": "10.0.1",
-    "cross-env": "7.0.2",
-    "cssnano": "4.1.10",
-    "mkdirp": "1.0.4",
-    "postcss-cli": "8.0.0",
-    "prettier": "2.1.2",
-    "rimraf": "3.0.2",
-    "stylelint": "13.7.2",
-    "stylelint-config-prettier": "8.0.2",
-    "stylelint-config-standard": "20.0.0",
-    "stylelint-order": "4.1.0"
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
+    "autoprefixer": "^10.2.5",
+    "cross-env": "^7.0.3",
+    "cssnano": "^4.1.10",
+    "html-minifier": "^4.0.0",
+    "postcss": "^8.2.8",
+    "postcss-cli": "^8.3.1",
+    "prettier": "^2.2.1",
+    "shx": "^0.3.3",
+    "stylelint": "^13.12.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-no-unsupported-browser-features": "^4.1.4",
+    "stylelint-order": "^4.1.0",
+    "tailwindcss": "^2.0.4"
   }
 }

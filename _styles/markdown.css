@@ -1,0 +1,92 @@
+/* Originally from https://github.com/iandinwoodie/github-markdown-tailwindcss */
+
+.markdown {
+  @apply text-base leading-relaxed text-gray-900 break-words;
+}
+
+.markdown > * {
+  @apply mt-0 mb-4;
+}
+
+.markdown li + li {
+  @apply mt-1;
+}
+
+.markdown li > p + p {
+  @apply mt-6;
+}
+
+.markdown strong {
+  @apply font-semibold;
+}
+
+.markdown a {
+  @apply font-semibold text-blue-600;
+}
+
+.markdown strong a {
+  @apply font-bold;
+}
+
+.markdown h2 {
+  @apply mt-6 mb-4 text-4xl font-semibold tracking-tight;
+}
+
+.markdown h3 {
+  @apply mt-6 mb-4 text-3xl font-semibold tracking-tight;
+}
+
+.markdown h4 {
+  @apply mt-6 mb-4 text-2xl font-semibold tracking-tight;
+}
+
+.markdown h5 {
+  @apply mt-6 mb-4 text-2xl font-semibold tracking-tight text-gray-600;
+}
+
+.markdown h6 {
+  @apply mt-6 mb-4 text-2xl tracking-tight text-gray-600;
+}
+
+.markdown blockquote {
+  @apply pl-4 pr-4 text-base text-gray-600 border-l-4 border-gray-300;
+}
+
+.markdown code {
+  @apply inline px-1 font-mono text-base bg-gray-200 rounded;
+}
+
+.markdown pre {
+  @apply p-4 bg-gray-100 rounded;
+}
+
+.markdown pre code {
+  @apply block p-0 overflow-visible bg-transparent rounded-none;
+}
+
+.markdown ul {
+  @apply pl-8 text-base list-disc;
+}
+
+.markdown ol {
+  @apply pl-8 text-base list-decimal;
+}
+
+.markdown kbd {
+  padding-bottom: 0.125rem;
+  padding-top: 0.125rem;
+
+  @apply inline-block px-1 font-mono text-xs font-normal align-middle border rounded shadow;
+}
+
+.markdown table {
+  @apply text-base border-gray-600;
+}
+
+.markdown th {
+  @apply px-3 py-1 border;
+}
+
+.markdown td {
+  @apply px-3 py-1 border;
+}

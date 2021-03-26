@@ -3,10 +3,20 @@
   "title": "Example.com",
   "subtitle": "An example blog",
   "description": "A longer description of this site",
-  "copyright_years": "2019-2020",
+  "copyright_years": "2019-2021",
   "url": "https://example.com",
   "author": {
     "nickname": "John",
     "fullname": "John Doe"
-  }
+  },
+  "nav_links": [
+    {
+      "label": "About",
+      "url": "/about/"
+    },
+    {
+      "label": "Twitter",
+      "url": "https://twitter.com/"
+    }
+  ]
 }

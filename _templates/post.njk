@@ -1,0 +1,16 @@
+---
+layout: base.njk
+permalink: "{% if prefix %}{{ prefix | slug }}{% else %}{{ lang | slug }}{% endif %}/{{ page.fileSlug | slug }}/index.html"
+lang: en
+tags:
+  - post
+  - en
+---
+
+<article class="mb-10">
+  <h1 class="mt-8 mb-3 font-semibold tracking-tight text-center text-4_5xl">{{ title }}</h1>
+  <p class="mb-6 text-center">Published in {{ page.date.getUTCFullYear() }} by {{ author.name or site.author.nickname }}</p>
+  <div class="markdown">
+    {{ content | safe }}
+  </div>
+</article>
