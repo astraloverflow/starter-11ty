@@ -1,7 +1,7 @@
 {
   "private": true,
   "license": "",
-  "version": "2021.03.25",
+  "version": "2021.07.12",
   "name": "@astraloverflow/starter-11ty",
   "description": "A starter template for static generated blogs using 11ty",
   "scripts": {
@@ -18,20 +18,20 @@
   "dependencies": {},
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
-    "autoprefixer": "^10.2.5",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.2",
+    "autoprefixer": "^10.3.1",
     "cross-env": "^7.0.3",
-    "cssnano": "^4.1.10",
+    "cssnano": "^5.0.6",
     "html-minifier": "^4.0.0",
-    "postcss": "^8.2.8",
+    "postcss": "^8.3.5",
     "postcss-cli": "^8.3.1",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.2",
     "shx": "^0.3.3",
-    "stylelint": "^13.12.0",
+    "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^21.0.0",
-    "stylelint-no-unsupported-browser-features": "^4.1.4",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-no-unsupported-browser-features": "^5.0.1",
     "stylelint-order": "^4.1.0",
-    "tailwindcss": "^2.0.4"
+    "tailwindcss": "^2.2.4"
   }
 }
