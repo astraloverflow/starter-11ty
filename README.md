@@ -39,9 +39,9 @@ $ npm run dev
 
 - Runs 11ty in development mode and runs a development server.
 
-### `npm run build`
+### `npm run prod`
 
-- Runs `11ty in production mode and builds the project.
+- Runs 11ty in production mode and builds the project.
 
 ---
 
