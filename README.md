@@ -20,7 +20,6 @@ $ cd ~/dev/
 $ npx degit astraloverflow/starter-11ty#2023.04.04 my-new-website
 $ cd my-new-website
 $ npm install
-$ npm run css
 $ npm run dev
 ```
 
