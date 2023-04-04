@@ -1,9 +1,13 @@
 ---
-date: 2023-04-03
-title: This is my first post
+draft: true
+date: 2023-04-04
+title: Some Draft Post
+prefix: article
 ---
 
-_This is an example blog post._
+_This is an example draft blog post. It only shows up during development mode._
+
+_It also uses a URL prefix, which in this case is `/article/`_
 
 The Internet is the global system of interconnected computer networks that uses the Internet protocol suite (TCP/IP) to communicate between networks and devices. It is a network of networks that consists of private, public, academic, business, and government networks of local to global scope, linked by a broad array of electronic, wireless, and optical networking technologies. The Internet carries a vast range of information resources and services, such as the inter-linked hypertext documents and applications of the World Wide Web (WWW), electronic mail, telephony, and file sharing.
 

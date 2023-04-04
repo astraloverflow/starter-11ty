@@ -17,7 +17,7 @@
 
 ```shell
 $ cd ~/dev/
-$ npx degit astraloverflow/starter-11ty#2021.07.12 my-new-website
+$ npx degit astraloverflow/starter-11ty#2023.04.04 my-new-website
 $ cd my-new-website
 $ npm install
 $ npm run css
@@ -30,19 +30,11 @@ $ npm run dev
 
 ### `npm run test`
 
-- Runs [stylelint](https://stylelint.io) (see `.stylelintrc`) to check css files for syntax and coding style errors.
+- Runs [stylelint](https://stylelint.io) (see `.stylelintrc.js`) and [eslint](https://eslint.org) (see `.eslintrc.js`) to check files for syntax and coding style errors.
 
 ### `npm run format`
 
 - Runs [Prettier](https://prettier.io) to format all code to the same style. See Prettier website for full list of supported languages. Best used with the Prettier plugin for your chosen editor.
-
-### `npm run clean`
-
-- Deletes the `_site/` output directory for a fresh build.
-
-### `npm run css`
-
-- Runs PostCSS to build tailwindcss, and when `NODE_ENV` is set to production, autoprefixer and cssnano are also run.
 
 ### `npm run dev`
 
@@ -51,31 +43,6 @@ $ npm run dev
 ### `npm run build`
 
 - Runs `npm run css` and then 11ty in production mode to build the project.
-
----
-
-## Project Structure
-
-- `_data/` contains 11ty global data files (see https://www.11ty.dev/docs/data/)
-  - `_data/site.json` site wide config
-- `_templates/` contains template layouts and partials (see https://www.11ty.dev/docs/templates/)
-  - `_templates/base.njk` base layout that all other layouts extend
-  - `_templates/post.njk` post/article layout
-  - `_templates/page.njk` page layout
-  - `_templates/home.njk` site homepage layout
-- `_styles/` contains source CSS files, not yet processed by PostCSS
-  - `_styles/tailwind.css` tailwind is generated here
-  - `_styles/main.css` main css file
-  - `_styles/markdown.css` extends tailwind styles for markdown output
-  - `_styles/syntax.css` syntax highlighting styles
-- `src/` contains the source and content for the site
-  - `src/_images/` put images here, this whole folder will ‘be copied by 11ty into the output directory
-  - `src/_posts/` blog posts go here
-    - `src/_posts/_posts.json` tells 11ty what default layout to use for every file in the folder
-    - `src/_posts/lorem.md` and `src/_posts/ipsum.md` examples of posts that use the `prefix` frontmatter attribute
-  - `src/about.md` example page
-  - `src/index.md` the home page for the site
-- `.eleventy.js` config for 11ty
 
 ---
 
@@ -91,7 +58,6 @@ Inside of [`.gitignore`](./.gitignore) you will find the following
 
 ```ini
 # These files lock down the project's node dependencies
-# These are only here for the development of starter-web
 # You should remove whichever one you are using in your project
 package-lock.json
 yarn.lock

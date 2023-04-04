@@ -1,0 +1,22 @@
+---
+layout: base.njk
+permalink: '{% if prefix %}{{ prefix | slug }}{% else %}{{ page.date.getUTCFullYear() | slug }}{% endif %}/{{ page.fileSlug | slug }}/index.html'
+tags:
+  - post
+---
+
+<article>
+  <h1>
+    {{ title }}
+  </h1>
+  <p>
+    Published
+    {{ page.date.toLocaleDateString(page.lang, site.localizedDate) }}
+    by
+    {{ author.name or site.author.nickname }}
+    - {{ content | timeToRead }} read
+  </p>
+  <div>
+    {{ content | safe }}
+  </div>
+</article>

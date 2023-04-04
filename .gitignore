@@ -3,10 +3,9 @@ node_modules
 .DS_Store
 
 # Remove this line if you want keep the generated site in git
-_site
+dist
 
 # These files lock down the project's node dependencies
-# These are only here for the development of starter-vite
 # You should remove whichever one you are using in your project
 package-lock.json
 yarn.lock
