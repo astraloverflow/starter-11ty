@@ -41,7 +41,7 @@ $ npm run dev
 
 ### `npm run build`
 
-- Runs `npm run css` and then 11ty in production mode to build the project.
+- Runs `11ty in production mode and builds the project.
 
 ---
 
