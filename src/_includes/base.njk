@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class="bg-gray-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Hello World</title>
+    <!-- <meta name="description" content="" /> -->
+    <!-- <link rel="canonical" href="https://example.com" /> -->
+    <!-- <meta name="robots" content="noindex nofollow" /> -->
+
+    {% set tailwind %} {% include "tailwind.css" %} {% endset -%}
+    <style>
+      {{ tailwind | postcss | safe }}
+    </style>
+  </head>
+  <body>
+    <div class="mx-auto max-w-4xl p-4">
+      <div class="rounded-lg bg-white p-4 shadow">
+        {{ content | safe }}
+      </div>
+    </div>
+  </body>
+</html>

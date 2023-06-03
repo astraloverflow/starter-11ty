@@ -1,8 +1,3 @@
-# The Ultimate EditorConfig File
-# License: Creative Commons Zero 1.0
-# https://github.com/astraloverflow/editorconfig
-# http://editorconfig.org
-
 # Project Root, Don't Look Any Higher
 root = true
 
@@ -15,14 +10,6 @@ indent_size = 2
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# JSON Settings
-[*.{json}]
-indent_style = space
-indent_size = 2
-trim_trailing_whitespace = true
-
 # Markdown & YAML Settings
 [*.{md,yml}]
-indent_style = space
-indent_size = 2
 trim_trailing_whitespace = false

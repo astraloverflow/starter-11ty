@@ -1,78 +1,42 @@
-const plugindirectoryOutput = require('@11ty/eleventy-plugin-directory-output');
-const toml = require('toml');
+const directoryOutput = require('@11ty/eleventy-plugin-directory-output');
+
+const postcss = require('postcss');
+const tailwind = require('tailwindcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
 const markdownItAnchor = require('markdown-it-anchor');
-const pluginTimeToRead = require('eleventy-plugin-time-to-read');
-const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const pluginRss = require('@11ty/eleventy-plugin-rss');
-const pluginRev = require('eleventy-plugin-rev');
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const htmlmin = require('html-minifier');
 
-const eleventySass = require('eleventy-sass');
-const postcss = require('postcss');
-
-const isProduction = process.env.NODE_ENV === 'production';
-// const isProduction = true;
-
 module.exports = function (config) {
+  const isProduction = process.env.NODE_ENV === 'production';
+  // const isProduction = true;
+
   config.setQuietMode(true);
-  config.addPlugin(plugindirectoryOutput);
+  config.addPlugin(directoryOutput);
 
-  config.addPassthroughCopy('src/_images');
+  config.addPassthroughCopy('src/_assets');
 
-  // When `permalink` is false, the file is not written to disk
-  config.addGlobalData('eleventyComputed.permalink', function () {
-    return (data) => {
-      // Always skip during non-watch/serve builds
-      if (data.draft && !process.env.BUILD_DRAFTS) {
-        return false;
-      }
-
-      return data.permalink;
-    };
+  config.addFilter('postcss', async function (input) {
+    return await postcss([
+      tailwind(),
+      autoprefixer(),
+      cssnano({ preset: 'default' }),
+    ])
+      .process(input, {
+        from: undefined,
+      })
+      .then((r) => r.css);
   });
+  config.addWatchTarget('./src/_includes/**/*.css');
 
-  // When `eleventyExcludeFromCollections` is true, the file is not included in any collections
-  config.addGlobalData(
-    'eleventyComputed.eleventyExcludeFromCollections',
-    function () {
-      return (data) => {
-        // Always exclude from non-watch/serve builds
-        if (data.draft && !process.env.BUILD_DRAFTS) {
-          return true;
-        }
-
-        return data.eleventyExcludeFromCollections;
-      };
-    }
-  );
-
-  config.on('eleventy.before', ({ runMode }) => {
-    // Set the environment variable
-    if (runMode === 'serve' || runMode === 'watch') {
-      process.env.BUILD_DRAFTS = true;
-    }
-  });
-
-  config.addDataExtension('toml', (contents) => toml.parse(contents));
   config.amendLibrary('md', (mdLib) =>
     mdLib.use(markdownItAnchor, {
       tabIndex: false,
     })
   );
-
-  config.addPlugin(pluginTimeToRead, {
-    language: 'en',
-    speed: '200 words a minute',
-    style: 'short',
-  });
-  config.addPlugin(pluginSyntaxHighlight);
-  config.addPlugin(pluginRss, {
-    posthtmlRenderOptions: {
-      closingSingleTag: 'slash',
-    },
-  });
-  config.addPlugin(pluginRev);
+  config.addPlugin(syntaxHighlight);
 
   if (isProduction) {
     config.addTransform('htmlmin', function (content) {
@@ -91,39 +55,14 @@ module.exports = function (config) {
     });
   }
 
-  let sassOptions = {
-    sass: {
-      style: 'expanded',
-      sourceMap: false,
-    },
-    rev: true,
-  };
-
-  if (isProduction) {
-    sassOptions = {
-      ...sassOptions,
-      postcss: postcss([
-        require('@fullhuman/postcss-purgecss')({
-          content: ['dist/**/*.html'],
-        }),
-        require('autoprefixer'),
-        require('cssnano')({ preset: 'default' }),
-      ]),
-    };
-  }
-
-  config.addPlugin(eleventySass, sassOptions);
-
   return {
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
+
+    // pathPrefix: 'blog',
     dir: {
       input: 'src',
       output: 'dist',
-      includes: '_layouts',
     },
-
-    // pathPrefix: 'blog',
-
-    markdownTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk',
   };
 };

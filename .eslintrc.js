@@ -1,9 +1,11 @@
-// eslint-disable-next-line unicorn/prefer-module
 module.exports = {
   root: true,
-  plugins: ['compat', 'security', 'unicorn'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'compat', 'security', 'unicorn'],
   extends: [
-    // Standardjs JavaScript Coding Style (with semicolons!)
+    // Typescript recommended rules
+    'plugin:@typescript-eslint/recommended',
+    // Standardjs JavaScript Coding Style (with semicolons)
     'semistandard',
     // Error when using features not supported by browserlist selection (see package.json)
     'plugin:compat/recommended',
@@ -17,7 +19,10 @@ module.exports = {
   ],
   rules: {
     'no-unused-vars': 'off',
-    'arrow-body-style': ['error', 'as-needed'],
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'unicorn/prefer-module': 'off',
+    'unicorn/prevent-abbreviations': 'off',
     curly: ['error', 'all'],
     'no-restricted-syntax': [
       'error',
@@ -28,5 +33,5 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ['!.eslintrc.js', 'node_modules/**', 'dist/**'],
+  ignorePatterns: ['!.eslintrc.js', 'dist/**'],
 };
